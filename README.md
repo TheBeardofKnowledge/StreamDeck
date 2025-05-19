@@ -8,4 +8,5 @@ Wait until they all finish installing before moving on.
 Download and install your Fifine stream controller software
 https://fifinemicrophone.com/blogs/news/ampligame-d6-faqs
 Now simply download and run the StreamDeckPortFifine.bat to have it automatically transfer the plugins and icon packs to the Fifine software.
+After the items are transfered, the script will close and reopen the Fifine Control Deck Software with everything.
 Have fun!
