@@ -30,11 +30,11 @@ SET "AJAZZ_DATA=%AppData%\HotSpot\StreamDock"
 FOR /F "tokens=2*" %%A IN ('REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Stream Dock" /v "InstallLocation" 2^>NUL') DO SET "AJAZZ_PROG=%%B"
 
 :: 2. Deep Search for Ajazz if not found
-IF NOT EXIST "%AJAZZ_PROG%\Stream Deck AJAZZ.exe" (
+IF NOT EXIST "%AJAZZ_PROG%\Stream Dock AJAZZ.exe" (
     ECHO [Search] Looking for Ajazz executable...
     FOR %%D IN (C D E F G) DO (
         IF EXIST "%%D:\" (
-            FOR /F "delims=" %%F IN ('where /r "%%D:\Program Files (x86)" "Stream Deck AJAZZ.exe" 2^>NUL') DO SET "AJAZZ_PROG=%%~dpF"
+            FOR /F "delims=" %%F IN ('where /r "%%D:\Program Files (x86)" "Stream Dock AJAZZ.exe" 2^>NUL') DO SET "AJAZZ_PROG=%%~dpF"
         )
     )
 )
@@ -90,12 +90,12 @@ IF EXIST "%AJAZZ_DATA%\storecache\storecache.json" (
 :: ========================================================================
 ECHO.
 ECHO [+] Restarting Ajazz StreamDock...
-TASKKILL /F /IM "Stream Deck AJAZZ.exe" /T >nul 2>&1
+TASKKILL /F /IM "Stream Dock AJAZZ.exe" /T >nul 2>&1
 TIMEOUT /T 2 >nul
 
 IF "!AJAZZ_PROG:~-1!"=="\" SET "AJAZZ_PROG=!AJAZZ_PROG:~0,-1!"
 CD /D "%AJAZZ_PROG%"
-START "" "Stream Deck AJAZZ.exe"
+START "" "Stream Dock AJAZZ.exe"
 
 ECHO.
 ECHO ============================================================
